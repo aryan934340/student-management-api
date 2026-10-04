@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "Student Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }],
+  "item": [
+    { "name": "Get All Students", "request": { "method": "GET", "url": "{{baseUrl}}/students" } },
+    { "name": "Get Student By ID", "request": { "method": "GET", "url": "{{baseUrl}}/students/1" } },
+    { "name": "Get Student - Not Found (404)", "request": { "method": "GET", "url": "{{baseUrl}}/students/999" } },
+    { "name": "Create Student", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Kesham\",\n  \"course\": \"BTech\",\n  \"age\": 20\n}" }, "url": "{{baseUrl}}/students" } },
+    { "name": "Create Student - Bad Request (400)", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"course\": \"BTech\"\n}" }, "url": "{{baseUrl}}/students" } },
+    { "name": "Update Student", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"course\": \"MCA\"\n}" }, "url": "{{baseUrl}}/students/2" } },
+    { "name": "Delete Student", "request": { "method": "DELETE", "url": "{{baseUrl}}/students/3" } }
+  ]
+}
